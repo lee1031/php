@@ -7,7 +7,7 @@ Docker container to install and run [PHP-FPM](https://www.php.net/).
 
 ## Supported branches 
 - 7.4: `7.4.5-fpm`
-- 7.3: `7.3.14-fpm`
+- 7.3: `7.3.17-fpm`
 
 
 
