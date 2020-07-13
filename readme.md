@@ -6,8 +6,8 @@ Docker container to install and run [PHP-FPM](https://www.php.net/).
 [![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/lee1031/php)
 
 ## Supported branches 
-- 7.4: `7.4.6-fpm`、`7.4.5-fpm`
-- 7.3: `7.3.18-fpm`、`7.3.17-fpm`
+- 7.4: `7.4.8-fpm`、`7.4.7-fpm`、`7.4.6-fpm`、`7.4.5-fpm`
+- 7.3: `7.3.20-fpm`、`7.3.19-fpm`、`7.3.18-fpm`、`7.3.17-fpm`
 
 
 
