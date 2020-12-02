@@ -1,4 +1,4 @@
-FROM php:7.4.0RC4-cli-alpine3.10
+FROM php:7.4.13-fpm-alpine3.12
 
 LABEL maintainer="lee1031 <ligangmingx@gmail.com>"
 
@@ -26,6 +26,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
         imagemagick-dev \
         libmemcached-dev \
         openldap-dev \
+        gmp-dev \
     && apk add --no-cache \
         tzdata freetype libjpeg-turbo libpng \
         imagemagick \
@@ -60,14 +61,18 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
         soap \
         sockets \
         xmlrpc \
+        gmp \
+    && pecl install xdebug && docker-php-ext-enable xdebug \
     && yes '' | pecl install memcached && docker-php-ext-enable memcached \
     && pecl install mongodb && docker-php-ext-enable mongodb \
     && yes '' | pecl install redis && docker-php-ext-enable redis \
     && yes '' | pecl install imagick && docker-php-ext-enable imagick \
     && yes '' | pecl install apcu && docker-php-ext-enable apcu \
+    && pecl install swoole && docker-php-ext-enable swoole \
     && pecl install inotify && docker-php-ext-enable inotify \
     && docker-php-source delete \
     && apk \
     del build-deps \
     && rm -rf /var/cache/apk/* /var/lib/apk/* /etc/apk/cache/* \
     && rm -rf /tmp/* /var/tmp/*
+
