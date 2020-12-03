@@ -43,6 +43,13 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && cd fswatch \
     && ./autogen.sh && ./configure && make -j && make install \
     && cd .. && rm -rf fswatch \
+    && git clone --recursive --depth=1 https://github.com/Imagick/imagick \
+    && cd imagick \
+    && phpize && ./configure \
+    && make \
+    && make install \
+    && docker-php-ext-enable imagick \
+    && cd .. && rm -rf imagick \
     && docker-php-ext-configure gd \
            --with-freetype \
            --with-jpeg \
