@@ -27,6 +27,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
         libmemcached-dev \
         openldap-dev \
         gmp-dev \
+        file git automake libtool gettext gettext-dev g++ texinfo curl \
     && apk add --no-cache \
         tzdata freetype libjpeg-turbo libpng \
         imagemagick \
@@ -36,6 +37,12 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
         libzip \
         c-client \
         icu \
+        supervisor \
+        inotify-tools \
+    && git clone --recursive --depth=1 -b 1.15.0 https://github.com/emcrisostomo/fswatch.git \
+    && cd fswatch \
+    && ./autogen.sh && ./configure && make -j && make install \
+    && cd .. && rm -rf fswatch \
     && docker-php-ext-configure gd \
            --with-freetype \
            --with-jpeg \
