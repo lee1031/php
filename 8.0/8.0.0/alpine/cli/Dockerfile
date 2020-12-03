@@ -39,6 +39,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
         icu \
         supervisor \
         inotify-tools \
+        git \
     && git clone --recursive --depth=1 -b 1.15.0 https://github.com/emcrisostomo/fswatch.git \
     && cd fswatch \
     && ./autogen.sh && ./configure && make -j && make install \
