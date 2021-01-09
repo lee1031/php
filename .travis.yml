@@ -1,6 +1,6 @@
 sudo: required
 services: docker
 script:
-  - docker build -t lee1031/php:8.0.0-fpm ./8.0/8.0.0/alpine/fpm
+  - docker build -t lee1031/php:8.0.1-fpm ./8.0/8.0.1/alpine/fpm
 after_script:
   - docker images
