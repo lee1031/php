@@ -27,7 +27,6 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
         libmemcached-dev \
         openldap-dev \
         gmp-dev \
-        libgomp \
         file git automake libtool gettext gettext-dev g++ texinfo curl \
     && apk add --no-cache \
         tzdata freetype libjpeg-turbo libpng \
@@ -36,6 +35,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
         libpq \
         libxslt \
         libzip \
+        libgomp \
         c-client \
         icu \
         supervisor \
